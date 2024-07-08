@@ -4,8 +4,7 @@ var velocidad : int = 200
 var salto : int = 250
 var gravedad : int = 400
 var hitplayer:bool = false
-var cont_jump : int = 0
-var max_jump : int = 2
+var iluminar:bool=false
 
 @onready var anim = $anim
 @onready var collisionplayer = $Collisionplayer
@@ -13,6 +12,11 @@ var max_jump : int = 2
 # Ruta al nuevo personaje que reemplazará al actual
 var new_character_path = "res://scenes/chimboman2.tscn"
 
+
+func _ready():
+	$PointLight2D.visible=false
+	iluminar=false
+	
 func _physics_process(delta):
 	velocity.y += gravedad * delta
 	if !hitplayer:
@@ -26,7 +30,6 @@ func _physics_process(delta):
 			velocity.x = 0
 
 		if is_on_floor():
-			cont_jump = 0
 			if Input.is_action_just_pressed("saltar"):
 				velocity.y = -salto
 
@@ -44,10 +47,17 @@ func animaciones():
 func _input(_event):
 	if Input.is_action_just_pressed("agachar") and !hitplayer:
 		set_physics_process(false)
+		$linterna.play()
 		anim.play("hide")
-		await anim.animation_finished	   
+		await anim.animation_finished
 		replace_character()
-
+	
+	if Input.is_action_just_pressed("alumbrar") and !hitplayer:
+		$linterna.play()
+		$PointLight2D.visible=true
+		iluminar=true
+		
+	
 func replace_character():
 	# Cargar la nueva escena del personaje
 	var new_character_scene = load(new_character_path)
@@ -66,5 +76,5 @@ func replace_character():
 	# Remover el personaje actual de la escena
 	queue_free()
 
-
-
+	# Reactivar el proceso físico del nuevo personaje
+	new_character.set_physics_process(true)

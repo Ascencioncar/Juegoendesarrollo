@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://djb2lydflhjrk"]
+
+[ext_resource type="Texture2D" uid="uid://c7hi4w2245j72" path="res://export/chimboman.png" id="1_6561y"]
+[ext_resource type="Texture2D" uid="uid://d1w4rcxg3gb20" path="res://sprites/objetos/light.png" id="2_bcrt3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g36yh"]
+atlas = ExtResource("1_6561y")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mofbv"]
+atlas = ExtResource("1_6561y")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvyi3"]
+atlas = ExtResource("1_6561y")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6obf"]
+atlas = ExtResource("1_6561y")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvfc1"]
+atlas = ExtResource("1_6561y")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xo5v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g36yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mofbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvyi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6obf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvfc1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk + linterna",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqiu"]
+size = Vector2(20, 22.5)
+
+[node name="chimbomanlinterna" type="CharacterBody2D"]
+
+[node name="Animlinterna" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_5xo5v")
+animation = &"idle"
+frame_progress = 0.512654
+
+[node name="Collisionlinterna" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3.25)
+shape = SubResource("RectangleShape2D_4jqiu")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_bcrt3")

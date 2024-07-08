@@ -1,7 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://cm3nxob5iu4qm"]
+[gd_scene load_steps=36 format=3 uid="uid://cm3nxob5iu4qm"]
 
 [ext_resource type="Script" path="res://scripts/chimboman.gd" id="1_2882y"]
 [ext_resource type="Texture2D" uid="uid://c7hi4w2245j72" path="res://export/chimboman.png" id="1_eutfv"]
+[ext_resource type="Texture2D" uid="uid://d1w4rcxg3gb20" path="res://sprites/objetos/light.png" id="3_0n040"]
+[ext_resource type="AudioStream" uid="uid://cm630e7k6e1b" path="res://sounds/sonido de linterna/encendido-linterna.mp3" id="4_qj4ek"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0ojp"]
 atlas = ExtResource("1_eutfv")
@@ -323,7 +325,9 @@ script = ExtResource("1_2882y")
 texture_filter = 1
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_2wmr8")
-animation = &"walk"
+animation = &"hide"
+frame = 6
+frame_progress = 1.0
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false,
 "output_section": true
@@ -342,3 +346,13 @@ metadata/_aseprite_wizard_source_file_hash_ = "59e5c4ef71724b0fba846970e52d838d"
 [node name="Collisionplayer" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 3.75)
 shape = SubResource("RectangleShape2D_84cgm")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_0n040")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.8, 2.8)
+
+[node name="linterna" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qj4ek")

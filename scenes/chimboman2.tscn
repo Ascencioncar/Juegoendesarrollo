@@ -1,7 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2clm6b2rd53p"]
+[gd_scene load_steps=39 format=3 uid="uid://d2clm6b2rd53p"]
 
 [ext_resource type="Script" path="res://scripts/chimboman2.gd" id="1_2uvbw"]
 [ext_resource type="Texture2D" uid="uid://cf2vvmb2e51kv" path="res://export/chimbo man.png" id="1_aepuw"]
+[ext_resource type="Texture2D" uid="uid://d1w4rcxg3gb20" path="res://sprites/objetos/light.png" id="3_lvpmf"]
+[ext_resource type="AudioStream" uid="uid://cm630e7k6e1b" path="res://sounds/sonido de linterna/encendido-linterna.mp3" id="4_onlj6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sa8wq"]
 atlas = ExtResource("1_aepuw")
@@ -47,10 +49,6 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_aepuw")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ji77k"]
-atlas = ExtResource("1_aepuw")
-region = Rect2(128, 96, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_soril"]
 atlas = ExtResource("1_aepuw")
 region = Rect2(128, 128, 32, 32)
@@ -66,6 +64,10 @@ region = Rect2(0, 160, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_216xs"]
 atlas = ExtResource("1_aepuw")
 region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji77k"]
+atlas = ExtResource("1_aepuw")
+region = Rect2(128, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyr4k"]
 atlas = ExtResource("1_aepuw")
@@ -202,44 +204,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3tapk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ji77k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ji77k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ji77k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ji77k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ji77k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3tapk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3tapk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3tapk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3tapk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3tapk")
-}],
-"loop": true,
-"name": &"idle + hide ",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_soril")
 }, {
 "duration": 1.0,
@@ -275,8 +239,46 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_soril")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle + linterna",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tapk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tapk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tapk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tapk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tapk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tapk")
+}],
+"loop": true,
+"name": &"idlehide",
 "speed": 10.0
 }, {
 "frames": [{
@@ -350,7 +352,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e60lp")
 }],
-"loop": true,
+"loop": false,
 "name": &"walck + lintern",
 "speed": 10.0
 }, {
@@ -391,7 +393,7 @@ script = ExtResource("1_2uvbw")
 texture_filter = 1
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_rnrpu")
-animation = &"up"
+animation = &"idlehide"
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
 "o_ex_p": "",
@@ -409,3 +411,13 @@ metadata/_aseprite_wizard_source_file_hash_ = "59e5c4ef71724b0fba846970e52d838d"
 [node name="Collisionplayer2" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 5.75)
 shape = SubResource("RectangleShape2D_8w8is")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_lvpmf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.8, 2.8)
+
+[node name="linterna" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_onlj6")

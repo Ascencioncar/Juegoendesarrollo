@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cm630e7k6e1b"
+path="res://.godot/imported/encendido-linterna.mp3-509d7d965ecbc50fd0e9e288daa402df.mp3str"
+
+[deps]
+
+source_file="res://sounds/sonido de linterna/encendido-linterna.mp3"
+dest_files=["res://.godot/imported/encendido-linterna.mp3-509d7d965ecbc50fd0e9e288daa402df.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
