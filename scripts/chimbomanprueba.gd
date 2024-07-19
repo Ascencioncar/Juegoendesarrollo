@@ -58,7 +58,6 @@ func controlar_movimiento_oculto():
 
 	if is_on_floor() and Input.is_action_just_pressed("saltar"):
 		velocity.y = -salto
-		$colision/CollisionShape2D.disabled=false
 		salir_del_estado_oculto()
 
 func _input(_event):
@@ -66,16 +65,9 @@ func _input(_event):
 		entrar_en_estado_oculto()
 
 func entrar_en_estado_oculto():
-	anim.play("hide")
-	$colision/CollisionShape2D.disabled=true
 	estado_actual = State.HIDE
+	anim.play("hide")
 
 func salir_del_estado_oculto():
 	estado_actual = State.IDLE
 	anim.play("idle")
-
-
-func _on_colision_body_entered(body):
-	if body.is_in_group("Pared"):
-		#body.hit()
-		queue_free()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxfymnc1l2dmo"
-path="res://.godot/imported/linterna.png-631f05199054bbd007d32ee50666fb23.ctex"
+uid="uid://c85nr3770d3w0"
+path="res://.godot/imported/escopeta.png-a66ce2d2556a7315d3bc0fdf2ddbe102.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/objetos/linterna.png"
-dest_files=["res://.godot/imported/linterna.png-631f05199054bbd007d32ee50666fb23.ctex"]
+source_file="res://sprites/objetos/escopeta.png"
+dest_files=["res://.godot/imported/escopeta.png-a66ce2d2556a7315d3bc0fdf2ddbe102.ctex"]
 
 [params]
 
