@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://3ppa2je4pxsi"]
+[gd_scene load_steps=36 format=3 uid="uid://3ppa2je4pxsi"]
 
 [ext_resource type="Texture2D" uid="uid://c7hi4w2245j72" path="res://export/chimboman.png" id="1_2c04d"]
 [ext_resource type="Script" path="res://scripts/chimbomanprueba.gd" id="2_i6x82"]
@@ -258,11 +258,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtl1e"]
-size = Vector2(20, 7)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpbxp"]
-size = Vector2(20, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arm8k"]
+size = Vector2(21, 27)
 
 [node name="chimbomanprueba" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("2_i6x82")
@@ -270,17 +267,8 @@ script = ExtResource("2_i6x82")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_35cv4")
-animation = &"hide"
+animation = &"escopeta_idle"
 
-[node name="modo_honguito" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 10.5)
-shape = SubResource("RectangleShape2D_gtl1e")
-
-[node name="colision" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="colision"]
-position = Vector2(-1, 2)
-shape = SubResource("RectangleShape2D_vpbxp")
-
-[connection signal="area_entered" from="colision" to="." method="_on_colision_area_entered"]
-[connection signal="area_exited" from="colision" to="." method="_on_colision_area_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_arm8k")

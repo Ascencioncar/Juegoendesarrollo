@@ -59,11 +59,15 @@ func controlar_movimiento_oculto():
 	if is_on_floor() and Input.is_action_just_pressed("saltar"):
 		velocity.y = -salto
 		salir_del_estado_oculto()
+		$CollisionShape2D.scale.y=1.0
+		$CollisionShape2D.scale.x=1.0
 
 func _input(_event):
 	if Input.is_action_just_pressed("agachar") and estado_actual != State.HIDE:
 		entrar_en_estado_oculto()
-
+		$CollisionShape2D.scale.y=0.5
+		$CollisionShape2D.scale.x=0.5
+		
 func entrar_en_estado_oculto():
 	estado_actual = State.HIDE
 	anim.play("hide")
