@@ -1,7 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://3ppa2je4pxsi"]
+[gd_scene load_steps=37 format=3 uid="uid://3ppa2je4pxsi"]
 
 [ext_resource type="Texture2D" uid="uid://c7hi4w2245j72" path="res://export/chimboman.png" id="1_2c04d"]
 [ext_resource type="Script" path="res://scripts/chimbomanprueba.gd" id="2_i6x82"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a5oc"]
+size = Vector2(20, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqm0u"]
 atlas = ExtResource("1_2c04d")
@@ -264,11 +267,20 @@ size = Vector2(21, 27)
 [node name="chimbomanprueba" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("2_i6x82")
 
+[node name="detencion" type="Area2D" parent="."]
+
+[node name="colisionDetencion" type="CollisionShape2D" parent="detencion"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_3a5oc")
+debug_color = Color(0.921569, 0.278431, 0, 0.419608)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_35cv4")
-animation = &"escopeta_idle"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 0.5)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_arm8k")
+
+[connection signal="area_entered" from="detencion" to="." method="_on_detencion_area_entered"]
