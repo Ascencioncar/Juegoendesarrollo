@@ -3,6 +3,9 @@ extends CharacterBody2D
 enum State { IDLE, WALK, HIDE, ESCO }
 
 var velocidad : int = 200
+var dash_speed: int = 500
+var dashing:bool= false
+var can_dash:bool=true
 var salto : int = 250
 var gravedad : int = 400
 var estado_actual : State = State.IDLE
@@ -87,7 +90,11 @@ func _input(_event):
 	if Input.is_action_just_pressed("interactuar") and estado_actual != State.HIDE and escopeta:
 		if escopeta:  # Verifica si la referencia a la escopeta es válida antes de interactuar
 			cogerescopeta()
-
+			
+	if Input.is_action_just_pressed("dash"):
+		dashing= true
+		$dash_timer.start()
+		
 func entrar_en_estado_oculto():
 	estado_actual = State.HIDE
 	anim.play("hide")
@@ -111,19 +118,24 @@ func cogerescopeta():
 		tiene_escopeta = true  # Marca que el jugador ahora tiene la escopeta
 
 func movimiento_escopeta():
-	
 	if Input.is_action_pressed("ui_right"):
-			velocity.x = velocidad
-			anim.flip_h = false
-			anim.play("escopeta_idle")
+				velocity.x = velocidad
+				anim.flip_h = false
+				anim.play("escopeta_idle")
+				if dashing==true:
+					velocity.x = dash_speed
+					
 	elif Input.is_action_pressed("ui_left"):
-			velocity.x = -velocidad
-			anim.flip_h = true
-			anim.play("escopeta_idle")
+				velocity.x = -velocidad
+				anim.flip_h = true
+				anim.play("escopeta_idle")
+				if dashing==true:
+					velocity.x = -dash_speed
+					
 	else:
 		velocity.x = 0
 		anim.play("escopeta_idle")
-		
+			
 	if is_on_floor():
 		cont_jump=0
 		if Input.is_action_just_pressed("saltar"):
@@ -135,7 +147,7 @@ func movimiento_escopeta():
 				cont_jump+=1
 				velocity.y = -salto
 				dobleSalto()
-				
+					
 	if Input.is_action_just_pressed("atacar"):
 		if anim.flip_h == true:
 			proyectilizquierda()
@@ -170,5 +182,6 @@ func dobleSalto():
 	get_parent().add_child(newproyectil1)
 	newproyectil2.global_position = $dobleSalto/salto2.global_position
 	get_parent().add_child(newproyectil2)
-		
-		
+
+func _on_dash_timer_timeout():
+	dashing=false

@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjv0oish12qhk"]
+[gd_scene load_steps=5 format=3 uid="uid://bjv0oish12qhk"]
 
 [ext_resource type="TileSet" uid="uid://cbe8356o7bvs3" path="res://tile_set/tilempa pruebas.tres" id="1_33yh3"]
 [ext_resource type="PackedScene" uid="uid://3ppa2je4pxsi" path="res://scenes/chimbomanprueba.tscn" id="2_xijy5"]
 [ext_resource type="PackedScene" uid="uid://g8kdc762cmee" path="res://scenes/escopeta.tscn" id="3_b1s37"]
+[ext_resource type="PackedScene" uid="uid://csg0kujs8t3fk" path="res://scenes/pausa.tscn" id="4_cyo57"]
 
 [node name="main" type="Node2D"]
+
+[node name="Pausa" parent="." instance=ExtResource("4_cyo57")]
 
 [node name="TileMap" type="TileMap" parent="." groups=["Pared"]]
 tile_set = ExtResource("1_33yh3")
@@ -20,4 +23,5 @@ position = Vector2(369, 108)
 position = Vector2(57, 88)
 
 [node name="Camera2D" type="Camera2D" parent="chimbomanprueba"]
-zoom = Vector2(2.7, 2.7)
+position = Vector2(82, -64)
+zoom = Vector2(4, 4.61)

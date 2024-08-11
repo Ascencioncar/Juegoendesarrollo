@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://g8kdc762cmee"]
+[gd_scene load_steps=5 format=3 uid="uid://g8kdc762cmee"]
 
 [ext_resource type="Script" path="res://scripts/escopeta.gd" id="1_3f1u3"]
 [ext_resource type="Texture2D" uid="uid://c85nr3770d3w0" path="res://sprites/objetos/escopeta.png" id="1_po7d2"]
+[ext_resource type="FontFile" uid="uid://bw2wus8rqmjmy" path="res://sprites/objetos/Super Pixel Personal Use.ttf" id="3_6abit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jn1sp"]
 size = Vector2(42, 6)
@@ -20,10 +21,12 @@ shape = SubResource("RectangleShape2D_jn1sp")
 visible = false
 offset_left = -78.0
 offset_top = -27.0
-offset_right = 71.0
+offset_right = 57.0
 offset_bottom = -4.0
+size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "Escopeta recoger(f)"
+theme_override_fonts/font = ExtResource("3_6abit")
+text = "Escopeta (f)"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
