@@ -11,6 +11,10 @@ var tiene_escopeta: bool = false  # Nueva variable para rastrear si el jugador t
 var cont_jump:int=0
 var max_jump:int=2
 
+@export var balazoderecha: PackedScene
+@export var balazoizquierda: PackedScene
+@export var saltodoble: PackedScene
+
 @onready var anim = $AnimatedSprite2D
 var escopeta = null  # Referencia a la escopeta detectada
 
@@ -98,6 +102,7 @@ func salir_del_estado_oculto():
 
 func cogerescopeta():
 	if escopeta:
+		$TextureProgressBar.visible=true
 		escopeta.recogida()  # Llama al método de la escopeta para eliminarla
 		escopeta = null  # Libera la referencia a la escopeta después de recogerla
 		estado_actual = State.ESCO
@@ -106,7 +111,7 @@ func cogerescopeta():
 		tiene_escopeta = true  # Marca que el jugador ahora tiene la escopeta
 
 func movimiento_escopeta():
-	 
+	
 	if Input.is_action_pressed("ui_right"):
 			velocity.x = velocidad
 			anim.flip_h = false
@@ -124,10 +129,18 @@ func movimiento_escopeta():
 		if Input.is_action_just_pressed("saltar"):
 			cont_jump+=1
 			velocity.y= -salto
+			dobleSalto()
 	else: 
 		if Input.is_action_just_pressed("saltar") and max_jump > cont_jump:
 				cont_jump+=1
 				velocity.y = -salto
+				dobleSalto()
+				
+	if Input.is_action_just_pressed("atacar"):
+		if anim.flip_h == true:
+			proyectilizquierda()
+		else: 
+			proyectilderecha()
 
 func _on_detencion_area_entered(area):
 	if area.is_in_group("escopeta"):
@@ -140,3 +153,22 @@ func _on_detencion_area_exited(area):
 		escopeta = null  # Elimina la referencia cuando el jugador sale del área
 		escoger = true
 
+func proyectilderecha():
+		var newproyectil = balazoderecha.instantiate()
+		newproyectil.global_position = $"proyectiles/direccionDerecha".global_position
+		get_parent().add_child(newproyectil)
+		
+func proyectilizquierda():
+	var newproyectil = balazoizquierda.instantiate()
+	newproyectil.global_position = $"proyectiles/direccionizquierda".global_position
+	get_parent().add_child(newproyectil)
+	
+func dobleSalto():
+	var newproyectil1 = saltodoble.instantiate()
+	var newproyectil2 = saltodoble.instantiate()
+	newproyectil1.global_position = $dobleSalto/salto1.global_position
+	get_parent().add_child(newproyectil1)
+	newproyectil2.global_position = $dobleSalto/salto2.global_position
+	get_parent().add_child(newproyectil2)
+		
+		

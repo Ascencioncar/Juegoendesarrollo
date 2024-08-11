@@ -1,10 +1,13 @@
-[gd_scene load_steps=37 format=3 uid="uid://3ppa2je4pxsi"]
+[gd_scene load_steps=43 format=3 uid="uid://3ppa2je4pxsi"]
 
 [ext_resource type="Texture2D" uid="uid://c7hi4w2245j72" path="res://export/chimboman.png" id="1_2c04d"]
 [ext_resource type="Script" path="res://scripts/chimbomanprueba.gd" id="2_i6x82"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a5oc"]
-size = Vector2(20, 25)
+[ext_resource type="PackedScene" uid="uid://k0kyvffkto4d" path="res://scenes/proyectilderecha.tscn" id="2_m7n1l"]
+[ext_resource type="PackedScene" uid="uid://j0fu5f3rj5ys" path="res://scenes/proyectilizquierdo.tscn" id="3_8pt85"]
+[ext_resource type="PackedScene" uid="uid://dqqhg1m8wlwto" path="res://scenes/proyectil_salto.tscn" id="4_yncvc"]
+[ext_resource type="Texture2D" uid="uid://dkoyhuprnu4d7" path="res://sprites/objetos/balas/borde.png" id="6_njdpc"]
+[ext_resource type="Texture2D" uid="uid://d3kh26wbpfsga" path="res://sprites/objetos/balas/borde_balas-removebg-preview.png" id="7_quu63"]
+[ext_resource type="Script" path="res://scripts/TextureProgressBar.gd" id="8_ixtic"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqm0u"]
 atlas = ExtResource("1_2c04d")
@@ -261,11 +264,22 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a5oc"]
+size = Vector2(20, 25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arm8k"]
 size = Vector2(21, 27)
 
 [node name="chimbomanprueba" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("2_i6x82")
+balazoderecha = ExtResource("2_m7n1l")
+balazoizquierda = ExtResource("3_8pt85")
+saltodoble = ExtResource("4_yncvc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_35cv4")
+animation = &"idle"
 
 [node name="detencion" type="Area2D" parent="."]
 
@@ -274,13 +288,37 @@ position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_3a5oc")
 debug_color = Color(0.921569, 0.278431, 0, 0.419608)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.9, 0.9)
-sprite_frames = SubResource("SpriteFrames_35cv4")
-animation = &"idle"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_arm8k")
+
+[node name="proyectiles" type="Node2D" parent="."]
+
+[node name="direccionizquierda" type="Marker2D" parent="proyectiles"]
+position = Vector2(-27, 0)
+
+[node name="direccionDerecha" type="Marker2D" parent="proyectiles"]
+position = Vector2(24, 0)
+
+[node name="dobleSalto" type="Node2D" parent="."]
+
+[node name="salto1" type="Marker2D" parent="dobleSalto"]
+position = Vector2(-7, 17)
+
+[node name="salto2" type="Marker2D" parent="dobleSalto"]
+position = Vector2(6, 17)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." groups=["balaspersonaje"]]
+visible = false
+offset_left = -86.0
+offset_top = -62.0
+offset_right = 256.0
+offset_bottom = 139.0
+scale = Vector2(0.1, 0.1)
+max_value = 2.0
+value = 2.0
+texture_under = ExtResource("6_njdpc")
+texture_progress = ExtResource("7_quu63")
+script = ExtResource("8_ixtic")
 
 [connection signal="area_entered" from="detencion" to="." method="_on_detencion_area_entered"]

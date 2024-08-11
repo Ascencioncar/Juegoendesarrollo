@@ -1,0 +1,76 @@
+[gd_scene load_steps=16 format=3 uid="uid://k0kyvffkto4d"]
+
+[ext_resource type="Texture2D" uid="uid://c8k0da65q837c" path="res://sprites/objetos/Fireballs by Weentermakesgames/FireballNoWindNoline/FireballsNoWindEffectNoLines0006.png" id="1_0y607"]
+[ext_resource type="Script" path="res://scripts/proyectilderecha.gd" id="1_22j70"]
+[ext_resource type="Texture2D" uid="uid://ccanib2asciwt" path="res://sprites/objetos/Fireballs by Weentermakesgames/FireballNoWindNoline/FireballsNoWindEffectNoLines0007.png" id="2_4cg8h"]
+[ext_resource type="Texture2D" uid="uid://beflafn3y2slm" path="res://sprites/objetos/Fireballs by Weentermakesgames/FireballNoWindNoline/FireballsNoWindEffectNoLines0008.png" id="3_4m5t5"]
+[ext_resource type="Texture2D" uid="uid://cej1tfmuajpha" path="res://sprites/objetos/Fireballs by Weentermakesgames/FireballNoWindNoline/FireballsNoWindEffectNoLines0009.png" id="4_lem5o"]
+[ext_resource type="Texture2D" uid="uid://dk6qj2fuy2q0y" path="res://sprites/objetos/Fireballs by Weentermakesgames/FireballNoWindNoline/FireballsNoWindEffectNoLines0010.png" id="5_oy7xn"]
+[ext_resource type="Texture2D" uid="uid://bnvaldpiyk1v8" path="res://sprites/objetos/Fireballs by Weentermakesgames/FireballNoWindNoline/FireballsNoWindEffectNoLines0011.png" id="6_k3745"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq6sf"]
+atlas = ExtResource("1_0y607")
+region = Rect2(0, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe8gn"]
+atlas = ExtResource("2_4cg8h")
+region = Rect2(0, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xhtr"]
+atlas = ExtResource("3_4m5t5")
+region = Rect2(0, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dyts"]
+atlas = ExtResource("4_lem5o")
+region = Rect2(0, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uabu6"]
+atlas = ExtResource("5_oy7xn")
+region = Rect2(0, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm2xe"]
+atlas = ExtResource("6_k3745")
+region = Rect2(0, 0, 700, 700)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w34u8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq6sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe8gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xhtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dyts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uabu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm2xe")
+}],
+"loop": true,
+"name": &"ataque",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q1dwn"]
+radius = 3.0
+height = 6.0
+
+[node name="proyectilderecha" type="Area2D"]
+script = ExtResource("1_22j70")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_w34u8")
+animation = &"ataque"
+frame_progress = 0.205046
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, 8)
+shape = SubResource("CapsuleShape2D_q1dwn")
