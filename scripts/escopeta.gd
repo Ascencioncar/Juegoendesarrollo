@@ -3,7 +3,7 @@ extends Area2D
 @onready var label = $Label
 
 func _ready():
-	label.visible = false  # Asegúrate de que el Label esté oculto al inicio
+	label.visible = false  
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):

@@ -1,14 +1,18 @@
 extends CharacterBody2D
 
-enum State { IDLE, WALK, HIDE, ESCO}
+enum State { IDLE, WALK, HIDE, ESCO }
 
 var velocidad : int = 200
 var salto : int = 250
 var gravedad : int = 400
 var estado_actual : State = State.IDLE
-var escoger:bool=false
+var escoger: bool = true
+var tiene_escopeta: bool = false  # Nueva variable para rastrear si el jugador tiene la escopeta
+var cont_jump:int=0
+var max_jump:int=2
 
 @onready var anim = $AnimatedSprite2D
+var escopeta = null  # Referencia a la escopeta detectada
 
 func _ready():
 	set_process(true)
@@ -28,6 +32,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func controlar_movimiento():
+	if tiene_escopeta:
+		return  # Si el jugador tiene la escopeta, no permite volver a IDLE o WALK
+
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = velocidad
 		anim.flip_h = false
@@ -62,50 +69,74 @@ func controlar_movimiento_oculto():
 	if is_on_floor() and Input.is_action_just_pressed("saltar"):
 		velocity.y = -salto
 		salir_del_estado_oculto()
-		$CollisionShape2D.scale.y=1.0
-		$CollisionShape2D.scale.x=1.0
-		$CollisionShape2D.position.y=1
+		$CollisionShape2D.scale.y = 1.0
+		$CollisionShape2D.scale.x = 1.0
+		$CollisionShape2D.position.y = 1
 
 func _input(_event):
 	if Input.is_action_just_pressed("agachar") and estado_actual != State.HIDE:
 		entrar_en_estado_oculto()
-		$CollisionShape2D.scale.y=0.5
-		$CollisionShape2D.scale.x=0.5
-		$CollisionShape2D.position.y=6.5
+		$CollisionShape2D.scale.y = 0.5
+		$CollisionShape2D.scale.x = 0.5
+		$CollisionShape2D.position.y = 6.5
 		
-	if Input.is_action_just_pressed("interactuar") and estado_actual != State.HIDE and !escoger:
-		cogerescopeta()
-		
+	if Input.is_action_just_pressed("interactuar") and estado_actual != State.HIDE and escopeta:
+		if escopeta:  # Verifica si la referencia a la escopeta es válida antes de interactuar
+			cogerescopeta()
+
 func entrar_en_estado_oculto():
 	estado_actual = State.HIDE
 	anim.play("hide")
 	
 func salir_del_estado_oculto():
-	estado_actual = State.IDLE
-	anim.play("idle")
-
-func cogerescopeta():
-	estado_actual = State.ESCO
-	anim.play("escopeta_idle")
-	
-func movimiento_escopeta():
-	if Input.is_action_pressed("ui_right"):
-		velocity.x = velocidad
-		anim.flip_h = false
-		estado_actual = State.ESCO
-		anim.play("escopeta_idle")
-	elif Input.is_action_pressed("ui_left"):
-		velocity.x = -velocidad
-		anim.flip_h = true
-		estado_actual = State.ESCO
+	if tiene_escopeta:
+		estado_actual = State.ESCO  # Si tiene escopeta, solo puede volver a ESCO
 		anim.play("escopeta_idle")
 	else:
-		velocity.x = 0
+		estado_actual = State.IDLE
+		anim.play("idle")
+
+func cogerescopeta():
+	if escopeta:
+		escopeta.recogida()  # Llama al método de la escopeta para eliminarla
+		escopeta = null  # Libera la referencia a la escopeta después de recogerla
 		estado_actual = State.ESCO
 		anim.play("escopeta_idle")
+		escoger = true  # Resetea la variable para no recoger múltiples veces
+		tiene_escopeta = true  # Marca que el jugador ahora tiene la escopeta
 
+func movimiento_escopeta():
+	 
+	if Input.is_action_pressed("ui_right"):
+			velocity.x = velocidad
+			anim.flip_h = false
+			anim.play("escopeta_idle")
+	elif Input.is_action_pressed("ui_left"):
+			velocity.x = -velocidad
+			anim.flip_h = true
+			anim.play("escopeta_idle")
+	else:
+		velocity.x = 0
+		anim.play("escopeta_idle")
+		
+	if is_on_floor():
+		cont_jump=0
+		if Input.is_action_just_pressed("saltar"):
+			cont_jump+=1
+			velocity.y= -salto
+	else: 
+		if Input.is_action_just_pressed("saltar") and max_jump > cont_jump:
+				cont_jump+=1
+				velocity.y = -salto
 
 func _on_detencion_area_entered(area):
 	if area.is_in_group("escopeta"):
-		escoger = true
+		escopeta = area  # Guarda la referencia de la escopeta detectada
+		escoger = false
 		print("Escopeta encontrada")
+
+func _on_detencion_area_exited(area):
+	if area.is_in_group("escopeta"):
+		escopeta = null  # Elimina la referencia cuando el jugador sale del área
+		escoger = true
+
