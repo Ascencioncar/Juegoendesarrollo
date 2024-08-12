@@ -121,14 +121,16 @@ func movimiento_escopeta():
 	if Input.is_action_pressed("ui_right"):
 				velocity.x = velocidad
 				anim.flip_h = false
-				anim.play("escopeta_idle")
+				estado_actual = State.ESCO
+				anim.play("walk + escopeta")
 				if dashing==true:
 					velocity.x = dash_speed
 					
 	elif Input.is_action_pressed("ui_left"):
 				velocity.x = -velocidad
 				anim.flip_h = true
-				anim.play("escopeta_idle")
+				estado_actual = State.ESCO
+				anim.play("walk + escopeta")
 				if dashing==true:
 					velocity.x = -dash_speed
 					
@@ -139,21 +141,43 @@ func movimiento_escopeta():
 	if is_on_floor():
 		cont_jump=0
 		if Input.is_action_just_pressed("saltar"):
+			set_physics_process(false)
+			anim.play("salto_escopeta")
+			await anim.animation_finished
 			cont_jump+=1
 			velocity.y= -salto
 			dobleSalto()
+			get_tree().get_nodes_in_group("balasplayer")[0].Disminuirbala(1)
+			set_physics_process(true)
+			
 	else: 
 		if Input.is_action_just_pressed("saltar") and max_jump > cont_jump:
 				cont_jump+=1
+				set_physics_process(false)
+				anim.play("salto_escopeta")
+				await anim.animation_finished
 				velocity.y = -salto
 				dobleSalto()
-					
+				get_tree().get_nodes_in_group("balasplayer")[0].Disminuirbala(1)
+				set_physics_process(true)	
+				
 	if Input.is_action_just_pressed("atacar"):
+		set_physics_process(false)
 		if anim.flip_h == true:
+			anim.play("atack_escopeta")
+			await anim.animation_finished
 			proyectilizquierda()
-		else: 
+			set_physics_process(true)
+			get_tree().get_nodes_in_group("balasplayer")[0].Disminuirbala(1)
+			
+		else:
+			set_physics_process(false)
+			anim.play("atack_escopeta")
+			await anim.animation_finished
 			proyectilderecha()
-
+			set_physics_process(true)
+			get_tree().get_nodes_in_group("balasplayer")[0].Disminuirbala(1)
+			
 func _on_detencion_area_entered(area):
 	if area.is_in_group("escopeta"):
 		escopeta = area  # Guarda la referencia de la escopeta detectada
@@ -185,3 +209,11 @@ func dobleSalto():
 
 func _on_dash_timer_timeout():
 	dashing=false
+	
+func recargarbalas():
+	set_physics_process(false)
+	anim.play("recarga_escopeta")
+	await anim.animation_finished
+	set_physics_process(true)
+	
+	

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://csg0kujs8t3fk"]
+[gd_scene load_steps=3 format=3 uid="uid://csg0kujs8t3fk"]
 
 [ext_resource type="Script" path="res://scripts/Pausa.gd" id="1_hhdb0"]
+[ext_resource type="FontFile" uid="uid://bw2wus8rqmjmy" path="res://sprites/objetos/Super Pixel Personal Use.ttf" id="2_l4c16"]
 
 [node name="Pausa" type="CanvasLayer"]
 process_mode = 3
@@ -14,3 +15,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 0.282353)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -591.0
+offset_top = -139.0
+offset_right = -520.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(15.778, 12.2052)
+theme_override_fonts/font = ExtResource("2_l4c16")
+text = "Pausa"

@@ -8,5 +8,6 @@ func _ready():
 func Disminuirbala(balas):
 	value-=balas
 	if value ==0:
-		pass
-		#get_tree().get_nodes_in_group("player")[0].dead()
+		get_tree().get_nodes_in_group("player")[0].recargarbalas()
+		value+=1
+		value+=1

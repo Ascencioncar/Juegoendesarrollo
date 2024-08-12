@@ -1,33 +1,128 @@
-[gd_scene load_steps=43 format=3 uid="uid://3ppa2je4pxsi"]
+[gd_scene load_steps=124 format=3 uid="uid://3ppa2je4pxsi"]
 
 [ext_resource type="Texture2D" uid="uid://c7hi4w2245j72" path="res://export/chimboman.png" id="1_2c04d"]
 [ext_resource type="Script" path="res://scripts/chimbomanprueba.gd" id="2_i6x82"]
 [ext_resource type="PackedScene" uid="uid://k0kyvffkto4d" path="res://scenes/proyectilderecha.tscn" id="2_m7n1l"]
 [ext_resource type="PackedScene" uid="uid://j0fu5f3rj5ys" path="res://scenes/proyectilizquierdo.tscn" id="3_8pt85"]
 [ext_resource type="PackedScene" uid="uid://dqqhg1m8wlwto" path="res://scenes/proyectil_salto.tscn" id="4_yncvc"]
+[ext_resource type="Texture2D" uid="uid://cwcnm01qtj1wu" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man1.png" id="5_81435"]
+[ext_resource type="Texture2D" uid="uid://bhq2r8g8vptdh" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man1.png" id="5_lx05e"]
+[ext_resource type="Texture2D" uid="uid://dnuetxigof7qj" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man2.png" id="6_lh7t2"]
 [ext_resource type="Texture2D" uid="uid://dkoyhuprnu4d7" path="res://sprites/objetos/balas/borde.png" id="6_njdpc"]
+[ext_resource type="Texture2D" uid="uid://c1vbk5dql1x50" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man2.png" id="6_ti77j"]
+[ext_resource type="Texture2D" uid="uid://cf47v84qe0ixw" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man3.png" id="7_cb5yi"]
+[ext_resource type="Texture2D" uid="uid://wngugso3oj84" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man3.png" id="7_pxo21"]
 [ext_resource type="Texture2D" uid="uid://d3kh26wbpfsga" path="res://sprites/objetos/balas/borde_balas-removebg-preview.png" id="7_quu63"]
 [ext_resource type="Script" path="res://scripts/TextureProgressBar.gd" id="8_ixtic"]
+[ext_resource type="Texture2D" uid="uid://gjjr08vppnvg" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man4.png" id="8_qi204"]
+[ext_resource type="Texture2D" uid="uid://jqr8tqsqt31s" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man4.png" id="8_xtrwi"]
+[ext_resource type="Texture2D" uid="uid://ccw01rrstsmwa" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man5.png" id="9_6v3uk"]
+[ext_resource type="Texture2D" uid="uid://c2ga2nveeiwo0" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man5.png" id="9_n3qve"]
+[ext_resource type="Texture2D" uid="uid://cdq2wdeuej00r" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man6.png" id="10_8tkrl"]
+[ext_resource type="Texture2D" uid="uid://bhgjfaiookg1h" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man6.png" id="10_pmmis"]
+[ext_resource type="Texture2D" uid="uid://bna1j21fqiwlt" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man7.png" id="11_yv8sv"]
+[ext_resource type="Texture2D" uid="uid://67i3tsechdt5" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man8.png" id="12_1v550"]
+[ext_resource type="Texture2D" uid="uid://0bqf33m151hg" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man9.png" id="13_3t454"]
+[ext_resource type="Texture2D" uid="uid://b67o3od2wveof" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man10.png" id="14_q1osl"]
+[ext_resource type="Texture2D" uid="uid://bol176a21pegu" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man11.png" id="15_wuv0o"]
+[ext_resource type="Texture2D" uid="uid://by00r7gpf6kfy" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man12.png" id="16_7bn4m"]
+[ext_resource type="Texture2D" uid="uid://cvukso1ckvuuo" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man1.png" id="18_4eqnk"]
+[ext_resource type="Texture2D" uid="uid://bqav6s6qexchj" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man1.png" id="18_e2kip"]
+[ext_resource type="Texture2D" uid="uid://dhodo3iqlbm08" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man2.png" id="19_0j462"]
+[ext_resource type="Texture2D" uid="uid://bbe4f7lbpn6nk" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man2.png" id="19_is0iy"]
+[ext_resource type="Texture2D" uid="uid://c2d3q10s0qrj8" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man3.png" id="20_3dss8"]
+[ext_resource type="Texture2D" uid="uid://b6tjlp21b68ki" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man3.png" id="20_oa6o3"]
+[ext_resource type="Texture2D" uid="uid://djdt70cirqdo8" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man4.png" id="21_8a6et"]
+[ext_resource type="Texture2D" uid="uid://16xjuapg0vcs" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man4.png" id="21_8wqbk"]
+[ext_resource type="Texture2D" uid="uid://bv3vr45twlv11" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man5.png" id="22_5j4ns"]
+[ext_resource type="Texture2D" uid="uid://vaveqnu50dhb" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man5.png" id="22_u63so"]
+[ext_resource type="Texture2D" uid="uid://dq4yk012pmu2r" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man6.png" id="23_a73q5"]
+[ext_resource type="Texture2D" uid="uid://copdnro2amj23" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man6.png" id="23_d7kws"]
+[ext_resource type="Texture2D" uid="uid://bnu7kcvatwyxj" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man7.png" id="24_0bae5"]
+[ext_resource type="Texture2D" uid="uid://bq3pp6umes0ps" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man7.png" id="24_4pf8t"]
+[ext_resource type="Texture2D" uid="uid://dm5rnjiednuqu" path="res://sprites/chimbo man aseprite/sprite/recarga_escopeta/chimbo man1.png" id="24_ux0tq"]
+[ext_resource type="Texture2D" uid="uid://dq5smlvc1udoy" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man8.png" id="25_5a0ks"]
+[ext_resource type="Texture2D" uid="uid://b0nunqsjfx31y" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man8.png" id="25_n5jwa"]
+[ext_resource type="Texture2D" uid="uid://cn31gu86xj0g7" path="res://sprites/chimbo man aseprite/sprite/recarga_escopeta/chimbo man2.png" id="25_nasny"]
+[ext_resource type="Texture2D" uid="uid://2war6jba68ln" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man9.png" id="26_5nawj"]
+[ext_resource type="Texture2D" uid="uid://cvycsnqgpkfrs" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man9.png" id="26_7ipen"]
+[ext_resource type="Texture2D" uid="uid://bcrgr1iroqqig" path="res://sprites/chimbo man aseprite/sprite/recarga_escopeta/chimbo man3.png" id="26_apgsu"]
+[ext_resource type="Texture2D" uid="uid://dge5nc3wmssq7" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man10.png" id="27_sfi3x"]
+[ext_resource type="Texture2D" uid="uid://cd0s0xaxblxet" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man10.png" id="27_y8or4"]
+[ext_resource type="Texture2D" uid="uid://cqpmywllwjx6c" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man11.png" id="28_4vqcn"]
+[ext_resource type="Texture2D" uid="uid://qmyg2bo4l55d" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man12.png" id="29_m2ago"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uqm0u"]
-atlas = ExtResource("1_2c04d")
-region = Rect2(96, 128, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmm8k"]
+atlas = ExtResource("5_81435")
+region = Rect2(0, 0, 30, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbw7a"]
-atlas = ExtResource("1_2c04d")
-region = Rect2(128, 128, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_duamo"]
+atlas = ExtResource("6_lh7t2")
+region = Rect2(0, 0, 30, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sjjjj"]
-atlas = ExtResource("1_2c04d")
-region = Rect2(160, 128, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb5lr"]
+atlas = ExtResource("7_cb5yi")
+region = Rect2(0, 0, 34, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ayv8c"]
-atlas = ExtResource("1_2c04d")
-region = Rect2(0, 160, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mik64"]
+atlas = ExtResource("8_xtrwi")
+region = Rect2(0, 0, 36, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0f7d"]
-atlas = ExtResource("1_2c04d")
-region = Rect2(32, 160, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6147"]
+atlas = ExtResource("9_6v3uk")
+region = Rect2(0, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xggry"]
+atlas = ExtResource("10_pmmis")
+region = Rect2(0, 0, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iae46"]
+atlas = ExtResource("5_lx05e")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4i6v"]
+atlas = ExtResource("6_ti77j")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ek0e"]
+atlas = ExtResource("7_pxo21")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8wbw"]
+atlas = ExtResource("8_qi204")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8r8b"]
+atlas = ExtResource("9_n3qve")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtmyk"]
+atlas = ExtResource("10_8tkrl")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mve3x"]
+atlas = ExtResource("11_yv8sv")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24mlk"]
+atlas = ExtResource("12_1v550")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dql6u"]
+atlas = ExtResource("13_3t454")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j2fe"]
+atlas = ExtResource("14_q1osl")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11bwf"]
+atlas = ExtResource("15_wuv0o")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_age27"]
+atlas = ExtResource("16_7bn4m")
+region = Rect2(0, 0, 30, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pa3x"]
 atlas = ExtResource("1_2c04d")
@@ -93,6 +188,58 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_2c04d")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo0a0"]
+atlas = ExtResource("24_ux0tq")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf0yc"]
+atlas = ExtResource("25_nasny")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42k7l"]
+atlas = ExtResource("26_apgsu")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hw8q"]
+atlas = ExtResource("18_e2kip")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgavh"]
+atlas = ExtResource("19_is0iy")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o1ij"]
+atlas = ExtResource("20_oa6o3")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32h31"]
+atlas = ExtResource("21_8wqbk")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idrek"]
+atlas = ExtResource("22_5j4ns")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrh0d"]
+atlas = ExtResource("23_d7kws")
+region = Rect2(0, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hssu1"]
+atlas = ExtResource("24_0bae5")
+region = Rect2(0, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cevf"]
+atlas = ExtResource("25_5a0ks")
+region = Rect2(0, 0, 30, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7u5h"]
+atlas = ExtResource("26_7ipen")
+region = Rect2(0, 0, 30, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1weou"]
+atlas = ExtResource("27_sfi3x")
+region = Rect2(0, 0, 30, 47)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_h230x"]
 atlas = ExtResource("1_2c04d")
 region = Rect2(96, 64, 32, 32)
@@ -133,27 +280,119 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("1_2c04d")
 region = Rect2(64, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn8hp"]
+atlas = ExtResource("18_4eqnk")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g65u6"]
+atlas = ExtResource("19_0j462")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evqpg"]
+atlas = ExtResource("20_3dss8")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnjjt"]
+atlas = ExtResource("21_8a6et")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi5nr"]
+atlas = ExtResource("22_u63so")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbvci"]
+atlas = ExtResource("23_a73q5")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rot0x"]
+atlas = ExtResource("24_4pf8t")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0hgx"]
+atlas = ExtResource("25_n5jwa")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr6x4"]
+atlas = ExtResource("26_5nawj")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd7q3"]
+atlas = ExtResource("27_y8or4")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wvvs"]
+atlas = ExtResource("28_4vqcn")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myb2n"]
+atlas = ExtResource("29_m2ago")
+region = Rect2(0, 0, 30, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_35cv4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uqm0u")
+"texture": SubResource("AtlasTexture_fmm8k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fbw7a")
+"texture": SubResource("AtlasTexture_duamo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sjjjj")
+"texture": SubResource("AtlasTexture_wb5lr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ayv8c")
+"texture": SubResource("AtlasTexture_mik64")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k0f7d")
+"texture": SubResource("AtlasTexture_h6147")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xggry")
+}],
+"loop": false,
+"name": &"atack_escopeta",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iae46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4i6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ek0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8wbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8r8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtmyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mve3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dql6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j2fe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11bwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_age27")
 }],
 "loop": true,
 "name": &"escopeta_idle",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -225,6 +464,55 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vo0a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf0yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42k7l")
+}],
+"loop": false,
+"name": &"recarga_escopeta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hw8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgavh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o1ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32h31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idrek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrh0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hssu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cevf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7u5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1weou")
+}],
+"loop": false,
+"name": &"salto_escopeta",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_h230x")
 }, {
 "duration": 1.0,
@@ -262,6 +550,47 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn8hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g65u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evqpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnjjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi5nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbvci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rot0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0hgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr6x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd7q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wvvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myb2n")
+}],
+"loop": true,
+"name": &"walk + escopeta",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3a5oc"]
@@ -279,7 +608,9 @@ saltodoble = ExtResource("4_yncvc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_35cv4")
-animation = &"idle"
+animation = &"recarga_escopeta"
+frame = 2
+frame_progress = 1.0
 
 [node name="detencion" type="Area2D" parent="."]
 
@@ -308,7 +639,15 @@ position = Vector2(-7, 17)
 [node name="salto2" type="Marker2D" parent="dobleSalto"]
 position = Vector2(6, 17)
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." groups=["balaspersonaje"]]
+[node name="dash_timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="can_dash_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="balas" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." groups=["balasplayer"]]
 visible = false
 offset_left = -86.0
 offset_top = -62.0
@@ -320,12 +659,6 @@ value = 2.0
 texture_under = ExtResource("6_njdpc")
 texture_progress = ExtResource("7_quu63")
 script = ExtResource("8_ixtic")
-
-[node name="dash_timer" type="Timer" parent="."]
-wait_time = 0.2
-
-[node name="can_dash_timer" type="Timer" parent="."]
-wait_time = 3.0
 
 [connection signal="area_entered" from="detencion" to="." method="_on_detencion_area_entered"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
