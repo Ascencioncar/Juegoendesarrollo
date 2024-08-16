@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dver6fbtt7ojh"]
+
+[ext_resource type="Texture2D" uid="uid://dggs5ykdtlrwq" path="res://sprites/objetos/png-transparent-cartoon-explosion-sprite-animation-drawing-pixel-art-special-effects-walk-cycle-computer-graphics-removebg-preview.png" id="1_0x4g3"]
+
+[node name="particulas_escopetas" type="CPUParticles2D"]
+position = Vector2(25, 1)
+emitting = false
+amount = 10
+lifetime = 1.5
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+fixed_fps = 30
+texture = ExtResource("1_0x4g3")
+gravity = Vector2(1, 0)
+initial_velocity_max = 25.0
+color = Color(1, 0, 0.0862745, 0.270588)

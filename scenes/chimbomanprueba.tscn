@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://3ppa2je4pxsi"]
+[gd_scene load_steps=112 format=3 uid="uid://3ppa2je4pxsi"]
 
 [ext_resource type="Texture2D" uid="uid://c7hi4w2245j72" path="res://export/chimboman.png" id="1_2c04d"]
 [ext_resource type="Script" path="res://scripts/chimbomanprueba.gd" id="2_i6x82"]
@@ -6,14 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://j0fu5f3rj5ys" path="res://scenes/proyectilizquierdo.tscn" id="3_8pt85"]
 [ext_resource type="PackedScene" uid="uid://dqqhg1m8wlwto" path="res://scenes/proyectil_salto.tscn" id="4_yncvc"]
 [ext_resource type="Texture2D" uid="uid://cwcnm01qtj1wu" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man1.png" id="5_81435"]
+[ext_resource type="PackedScene" uid="uid://cc3s4g6b7tgxe" path="res://scenes/particulas.tscn" id="5_j6w20"]
 [ext_resource type="Texture2D" uid="uid://bhq2r8g8vptdh" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man1.png" id="5_lx05e"]
 [ext_resource type="Texture2D" uid="uid://dnuetxigof7qj" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man2.png" id="6_lh7t2"]
-[ext_resource type="Texture2D" uid="uid://dkoyhuprnu4d7" path="res://sprites/objetos/balas/borde.png" id="6_njdpc"]
 [ext_resource type="Texture2D" uid="uid://c1vbk5dql1x50" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man2.png" id="6_ti77j"]
 [ext_resource type="Texture2D" uid="uid://cf47v84qe0ixw" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man3.png" id="7_cb5yi"]
 [ext_resource type="Texture2D" uid="uid://wngugso3oj84" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man3.png" id="7_pxo21"]
-[ext_resource type="Texture2D" uid="uid://d3kh26wbpfsga" path="res://sprites/objetos/balas/borde_balas-removebg-preview.png" id="7_quu63"]
-[ext_resource type="Script" path="res://scripts/TextureProgressBar.gd" id="8_ixtic"]
 [ext_resource type="Texture2D" uid="uid://gjjr08vppnvg" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man4.png" id="8_qi204"]
 [ext_resource type="Texture2D" uid="uid://jqr8tqsqt31s" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man4.png" id="8_xtrwi"]
 [ext_resource type="Texture2D" uid="uid://ccw01rrstsmwa" path="res://sprites/chimbo man aseprite/sprite/atack_escopeta/chimbo man5.png" id="9_6v3uk"]
@@ -26,31 +24,26 @@
 [ext_resource type="Texture2D" uid="uid://b67o3od2wveof" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man10.png" id="14_q1osl"]
 [ext_resource type="Texture2D" uid="uid://bol176a21pegu" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man11.png" id="15_wuv0o"]
 [ext_resource type="Texture2D" uid="uid://by00r7gpf6kfy" path="res://sprites/chimbo man aseprite/sprite/idle escopeta/chimbo man12.png" id="16_7bn4m"]
-[ext_resource type="Texture2D" uid="uid://cvukso1ckvuuo" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man1.png" id="18_4eqnk"]
+[ext_resource type="Texture2D" uid="uid://pbgxttabqmsb" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man1.png" id="18_4eqnk"]
 [ext_resource type="Texture2D" uid="uid://bqav6s6qexchj" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man1.png" id="18_e2kip"]
-[ext_resource type="Texture2D" uid="uid://dhodo3iqlbm08" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man2.png" id="19_0j462"]
+[ext_resource type="Texture2D" uid="uid://cnhtqr000mual" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man2.png" id="19_0j462"]
 [ext_resource type="Texture2D" uid="uid://bbe4f7lbpn6nk" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man2.png" id="19_is0iy"]
-[ext_resource type="Texture2D" uid="uid://c2d3q10s0qrj8" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man3.png" id="20_3dss8"]
+[ext_resource type="Texture2D" uid="uid://dpwyhntjfh5rs" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man3.png" id="20_3dss8"]
 [ext_resource type="Texture2D" uid="uid://b6tjlp21b68ki" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man3.png" id="20_oa6o3"]
-[ext_resource type="Texture2D" uid="uid://djdt70cirqdo8" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man4.png" id="21_8a6et"]
+[ext_resource type="Texture2D" uid="uid://bx3l2wr4s5o8r" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man4.png" id="21_8a6et"]
 [ext_resource type="Texture2D" uid="uid://16xjuapg0vcs" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man4.png" id="21_8wqbk"]
 [ext_resource type="Texture2D" uid="uid://bv3vr45twlv11" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man5.png" id="22_5j4ns"]
-[ext_resource type="Texture2D" uid="uid://vaveqnu50dhb" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man5.png" id="22_u63so"]
-[ext_resource type="Texture2D" uid="uid://dq4yk012pmu2r" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man6.png" id="23_a73q5"]
+[ext_resource type="Texture2D" uid="uid://c2ne2u1phddjh" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man5.png" id="22_u63so"]
+[ext_resource type="Texture2D" uid="uid://dupvbbqurwr6n" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man6.png" id="23_a73q5"]
 [ext_resource type="Texture2D" uid="uid://copdnro2amj23" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man6.png" id="23_d7kws"]
 [ext_resource type="Texture2D" uid="uid://bnu7kcvatwyxj" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man7.png" id="24_0bae5"]
-[ext_resource type="Texture2D" uid="uid://bq3pp6umes0ps" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man7.png" id="24_4pf8t"]
+[ext_resource type="Texture2D" uid="uid://coiykou36tg3" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man7.png" id="24_4pf8t"]
 [ext_resource type="Texture2D" uid="uid://dm5rnjiednuqu" path="res://sprites/chimbo man aseprite/sprite/recarga_escopeta/chimbo man1.png" id="24_ux0tq"]
 [ext_resource type="Texture2D" uid="uid://dq5smlvc1udoy" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man8.png" id="25_5a0ks"]
-[ext_resource type="Texture2D" uid="uid://b0nunqsjfx31y" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man8.png" id="25_n5jwa"]
 [ext_resource type="Texture2D" uid="uid://cn31gu86xj0g7" path="res://sprites/chimbo man aseprite/sprite/recarga_escopeta/chimbo man2.png" id="25_nasny"]
-[ext_resource type="Texture2D" uid="uid://2war6jba68ln" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man9.png" id="26_5nawj"]
 [ext_resource type="Texture2D" uid="uid://cvycsnqgpkfrs" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man9.png" id="26_7ipen"]
 [ext_resource type="Texture2D" uid="uid://bcrgr1iroqqig" path="res://sprites/chimbo man aseprite/sprite/recarga_escopeta/chimbo man3.png" id="26_apgsu"]
 [ext_resource type="Texture2D" uid="uid://dge5nc3wmssq7" path="res://sprites/chimbo man aseprite/sprite/salto_escopeta/chimbo man10.png" id="27_sfi3x"]
-[ext_resource type="Texture2D" uid="uid://cd0s0xaxblxet" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man10.png" id="27_y8or4"]
-[ext_resource type="Texture2D" uid="uid://cqpmywllwjx6c" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man11.png" id="28_4vqcn"]
-[ext_resource type="Texture2D" uid="uid://qmyg2bo4l55d" path="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man12.png" id="29_m2ago"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fmm8k"]
 atlas = ExtResource("5_81435")
@@ -280,52 +273,32 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("1_2c04d")
 region = Rect2(64, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vn8hp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb4j4"]
 atlas = ExtResource("18_4eqnk")
 region = Rect2(0, 0, 30, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g65u6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8pdy"]
 atlas = ExtResource("19_0j462")
 region = Rect2(0, 0, 30, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_evqpg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhvlm"]
 atlas = ExtResource("20_3dss8")
 region = Rect2(0, 0, 30, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fnjjt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubcsq"]
 atlas = ExtResource("21_8a6et")
 region = Rect2(0, 0, 30, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wi5nr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca8as"]
 atlas = ExtResource("22_u63so")
 region = Rect2(0, 0, 30, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pbvci"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqq6f"]
 atlas = ExtResource("23_a73q5")
 region = Rect2(0, 0, 30, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rot0x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_53mw4"]
 atlas = ExtResource("24_4pf8t")
-region = Rect2(0, 0, 30, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0hgx"]
-atlas = ExtResource("25_n5jwa")
-region = Rect2(0, 0, 30, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kr6x4"]
-atlas = ExtResource("26_5nawj")
-region = Rect2(0, 0, 30, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fd7q3"]
-atlas = ExtResource("27_y8or4")
-region = Rect2(0, 0, 30, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2wvvs"]
-atlas = ExtResource("28_4vqcn")
-region = Rect2(0, 0, 30, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_myb2n"]
-atlas = ExtResource("29_m2ago")
 region = Rect2(0, 0, 30, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_35cv4"]
@@ -553,43 +526,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vn8hp")
+"texture": SubResource("AtlasTexture_lb4j4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g65u6")
+"texture": SubResource("AtlasTexture_r8pdy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_evqpg")
+"texture": SubResource("AtlasTexture_xhvlm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fnjjt")
+"texture": SubResource("AtlasTexture_ubcsq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wi5nr")
+"texture": SubResource("AtlasTexture_ca8as")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pbvci")
+"texture": SubResource("AtlasTexture_lqq6f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rot0x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r0hgx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kr6x4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fd7q3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2wvvs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_myb2n")
+"texture": SubResource("AtlasTexture_53mw4")
 }],
 "loop": true,
-"name": &"walk + escopeta",
+"name": &"walk+escopeta",
 "speed": 10.0
 }]
 
@@ -604,13 +562,12 @@ script = ExtResource("2_i6x82")
 balazoderecha = ExtResource("2_m7n1l")
 balazoizquierda = ExtResource("3_8pt85")
 saltodoble = ExtResource("4_yncvc")
+particulas_escopeta = ExtResource("5_j6w20")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_35cv4")
-animation = &"recarga_escopeta"
-frame = 2
-frame_progress = 1.0
+animation = &"hide"
 
 [node name="detencion" type="Area2D" parent="."]
 
@@ -640,25 +597,18 @@ position = Vector2(-7, 17)
 position = Vector2(6, 17)
 
 [node name="dash_timer" type="Timer" parent="."]
+process_mode = 3
 wait_time = 0.2
+one_shot = true
+autostart = true
 
 [node name="can_dash_timer" type="Timer" parent="."]
-wait_time = 3.0
+process_mode = 3
+wait_time = 6.0
+one_shot = true
+autostart = true
 
 [node name="balas" type="CanvasLayer" parent="."]
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." groups=["balasplayer"]]
-visible = false
-offset_left = -86.0
-offset_top = -62.0
-offset_right = 256.0
-offset_bottom = 139.0
-scale = Vector2(0.1, 0.1)
-max_value = 2.0
-value = 2.0
-texture_under = ExtResource("6_njdpc")
-texture_progress = ExtResource("7_quu63")
-script = ExtResource("8_ixtic")
 
 [connection signal="area_entered" from="detencion" to="." method="_on_detencion_area_entered"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]

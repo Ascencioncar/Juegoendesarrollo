@@ -17,6 +17,8 @@ var max_jump:int=2
 @export var balazoderecha: PackedScene
 @export var balazoizquierda: PackedScene
 @export var saltodoble: PackedScene
+@export var particulas_escopeta: PackedScene
+
 
 @onready var anim = $AnimatedSprite2D
 var escopeta = null  # Referencia a la escopeta detectada
@@ -97,7 +99,10 @@ func _input(_event):
 		
 func entrar_en_estado_oculto():
 	estado_actual = State.HIDE
+	set_physics_process(false)
 	anim.play("hide")
+	await anim.animation_finished
+	set_physics_process(true)
 	
 func salir_del_estado_oculto():
 	if tiene_escopeta:
@@ -109,7 +114,7 @@ func salir_del_estado_oculto():
 
 func cogerescopeta():
 	if escopeta:
-		$TextureProgressBar.visible=true
+		$"../CanvasLayer/TextureProgressBar".visible=true
 		escopeta.recogida()  # Llama al método de la escopeta para eliminarla
 		escopeta = null  # Libera la referencia a la escopeta después de recogerla
 		estado_actual = State.ESCO
@@ -119,20 +124,20 @@ func cogerescopeta():
 
 func movimiento_escopeta():
 	if Input.is_action_pressed("ui_right"):
-				velocity.x = velocidad
-				anim.flip_h = false
-				estado_actual = State.ESCO
-				anim.play("walk + escopeta")
-				if dashing==true:
-					velocity.x = dash_speed
+			anim.play("walk+escopeta")
+			velocity.x = velocidad
+			anim.flip_h = false
+			estado_actual = State.ESCO
+			if dashing==true:
+				velocity.x = dash_speed
 					
 	elif Input.is_action_pressed("ui_left"):
-				velocity.x = -velocidad
-				anim.flip_h = true
-				estado_actual = State.ESCO
-				anim.play("walk + escopeta")
-				if dashing==true:
-					velocity.x = -dash_speed
+			anim.play("walk+escopeta")
+			velocity.x = -velocidad
+			anim.flip_h = true
+			estado_actual = State.ESCO
+			if dashing==true:
+				velocity.x = -dash_speed
 					
 	else:
 		velocity.x = 0
@@ -165,6 +170,7 @@ func movimiento_escopeta():
 		set_physics_process(false)
 		if anim.flip_h == true:
 			anim.play("atack_escopeta")
+			
 			await anim.animation_finished
 			proyectilizquierda()
 			set_physics_process(true)
@@ -173,6 +179,7 @@ func movimiento_escopeta():
 		else:
 			set_physics_process(false)
 			anim.play("atack_escopeta")
+		
 			await anim.animation_finished
 			proyectilderecha()
 			set_physics_process(true)
@@ -215,5 +222,10 @@ func recargarbalas():
 	anim.play("recarga_escopeta")
 	await anim.animation_finished
 	set_physics_process(true)
+
+func particulas():
+	var instance = particulas_escopeta.instantiate()
+	add_sibling(instance)
 	
+	instance.global_position = global_position + Vector2(0,5)
 	

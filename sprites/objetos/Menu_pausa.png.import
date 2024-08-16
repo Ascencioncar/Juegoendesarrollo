@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd0s0xaxblxet"
-path="res://.godot/imported/chimbo man10.png-648d43964302fd9c35278a9f82da5752.ctex"
+uid="uid://bxs2sx7msbhkd"
+path="res://.godot/imported/Menu_pausa.png-da3c3a9a03022aa27d74dda78fc7a09c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/chimbo man aseprite/sprite/walk escopeta/chimbo man10.png"
-dest_files=["res://.godot/imported/chimbo man10.png-648d43964302fd9c35278a9f82da5752.ctex"]
+source_file="res://sprites/objetos/Menu_pausa.png"
+dest_files=["res://.godot/imported/Menu_pausa.png-da3c3a9a03022aa27d74dda78fc7a09c.ctex"]
 
 [params]
 
